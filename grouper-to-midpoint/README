@@ -1,0 +1,33 @@
+# Grouper to Midpoint Demonstration Class
+
+This is a class to demonstrate the usage of the
+Unicon RabbitMQ plugin for Grouper, in conjuction
+with midPoint's rest interface.
+
+The below several static strings for configuration information
+are inside the class itself.
+
+EXCHANGE_NAME
+EXCHANGE_HOST
+EXCHANGE_USER
+EXCHANGE_SECRET
+MIDPOINT_REST_URL
+MIDPOINT_REST_USER
+MIDPOINT_REST_SECRET
+
+There is also two HashMaps that can be used to define
+which groups membership additions and deletions should
+result in adding or removing roles or resources in midPoint.
+
+roleGroups
+resourceGroups
+
+For example the mapping:
+
+roleGroups.put("ref:employee","employee");
+
+Would add the midPoint employee role to a user when their subjectId was addedd to the ref:employee Grouper group.
+
+After building you should be able to run with the below syntax.
+
+java -classpath groupermidpoint-0.1-SNAPSHOT-jar-with-dependencies.jar edu.unc.tier.groupermidpoint.GrouperToMidpoint
